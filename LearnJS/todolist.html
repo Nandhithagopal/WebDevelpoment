@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimal To-Do Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #todo-list { list-style-type: none; padding: 0; }
+        .todo-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
+        .delete-button { background-color: #ff0000; color: #fff; border: none; padding: 5px 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Minimal To-Do Page</h1>
+    <input type="text" id="task" placeholder="Add a task">
+    <button onclick="addTask()">Add</button>
+    <ul id="todo-list"></ul>
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('task');
+            const taskText = taskInput.value.trim();
+            if (taskText !== '') {
+                const todoList = document.getElementById('todo-list');
+                const listItem = document.createElement('li');
+                listItem.className = 'todo-item';
+                listItem.innerHTML = `<span>${taskText}</span> <button class="delete-button" onclick="removeTask(this)">Delete</button>`;
+                todoList.appendChild(listItem);
+                taskInput.value = '';
+            }
+        }
+
+        function removeTask(button) {
+            const listItem = button.parentElement;
+            listItem.remove();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>Sign up form
+    <script>
+        function validate(){       
+                var a=document.forms["signup"]["name"].value;
+                var b=document.forms["signup"]["mail"].value;
+                var c=document.forms["signup"]["pw"].value;
+                if(a==null||a==""){
+                    alert("Enter your name");
+                }
+                var mail1=b.split('@');
+                if(mail1[0].length<8||b==" "){
+                    alert("Email invalid");
+                }
+                if(c.length<6){
+                    alert("Password should contain 8 characters");
+                }
+        }
+    </script>
+    </head>
+    <body><i class="back">></i>
+        <fieldset>
+            
+            <form name="signup" action="challenge2.html" id="form"   onsubmit="validate()" id="form">
+                <img src="background.jpg">
+                Name:<input type="text" name="name"><br>
+                Username:<input type="email" name="mail"><br>
+                Password:<input type="password" name="pw"><br>
+             <button type="submit" >Submit</button>>
+            </form>
+        </fieldset>
+    </body>
+</html>
